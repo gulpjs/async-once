@@ -1,6 +1,6 @@
 {
   "name": "async-once",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Guarantee a node-style async function is only executed once",
   "main": "index.js",
   "scripts": {
