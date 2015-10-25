@@ -1,6 +1,6 @@
 # async-once
 
-[![Travis Build Status](https://img.shields.io/travis/phated/async-once/master.svg?label=travis&style=flat-square)](https://travis-ci.org/phated/async-once)
+[![Travis Build Status](https://img.shields.io/travis/gulpjs/async-once/master.svg?label=travis&style=flat-square)](https://travis-ci.org/gulpjs/async-once)
 
 Guarantee a node-style async function is only executed once
 
