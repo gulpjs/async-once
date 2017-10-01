@@ -1,6 +1,6 @@
 {
   "name": "async-once",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Guarantee a node-style async function is only executed once.",
   "author": "Gulp Team <team@gulpjs.com> (http://gulpjs.com/)",
   "contributors": [
