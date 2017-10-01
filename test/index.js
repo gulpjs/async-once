@@ -1,13 +1,12 @@
 'use strict';
 
-var lab = exports.lab = require('lab').script();
-var code = require('code');
+var expect = require('expect');
 
 var once = require('../');
 
-lab.experiment('async-once', function() {
+describe('async-once', function() {
 
-  lab.test('calls once', function(done) {
+  it('calls once', function(done) {
     var count = 0;
 
     var fn = once(function(cb) {
@@ -16,18 +15,18 @@ lab.experiment('async-once', function() {
     });
 
     fn(function(err, result) {
-      code.expect(count).to.equal(1);
-      code.expect(result).to.equal(1);
+      expect(count).toEqual(1);
+      expect(result).toEqual(1);
     });
 
     fn(function(err, result) {
-      code.expect(count).to.equal(1);
-      code.expect(result).to.equal(1);
+      expect(count).toEqual(1);
+      expect(result).toEqual(1);
       done(err);
     });
   });
 
-  lab.test('will queue multiple async runs', function(done) {
+  it('will queue multiple async runs', function(done) {
     var count = 0;
 
     var fn = once(function(cb) {
@@ -38,41 +37,41 @@ lab.experiment('async-once', function() {
     });
 
     fn(function(err, result) {
-      code.expect(count).to.equal(1);
-      code.expect(result).to.equal(1);
+      expect(count).toEqual(1);
+      expect(result).toEqual(1);
     });
 
     fn(function(err, result) {
-      code.expect(count).to.equal(1);
-      code.expect(result).to.equal(1);
+      expect(count).toEqual(1);
+      expect(result).toEqual(1);
       done(err);
     });
   });
 
-  lab.test('throws on non-node-style async function', function(done) {
+  it('throws on non-node-style async function', function(done) {
     var fn = once(function() {});
 
-    code.expect(fn.bind(null, 1234)).to.throw();
+    expect(fn.bind(null, 1234)).toThrow();
     done();
   });
 
-  lab.test('passes extra args to the wrapped fn', function(done) {
+  it('passes extra args to the wrapped fn', function(done) {
     var fn = once(function(fwd, cb) {
-      code.expect(fwd).to.equal(1);
+      expect(fwd).toEqual(1);
       cb(null, fwd);
     });
 
     fn(1, function(err, result) {
-      code.expect(result).to.equal(1);
+      expect(result).toEqual(1);
     });
 
     fn(2, function(err, result) {
-      code.expect(result).to.equal(1);
+      expect(result).toEqual(1);
       done();
     });
   });
 
-  lab.test('passes error from wrapped fn', function(done) {
+  it('passes error from wrapped fn', function(done) {
     var error = new Error('boom');
 
     var fn = once(function(cb) {
@@ -80,11 +79,11 @@ lab.experiment('async-once', function() {
     });
 
     fn(function(err) {
-      code.expect(err).to.equal(error);
+      expect(err).toEqual(error);
     });
 
     fn(function(err) {
-      code.expect(err).to.equal(error);
+      expect(err).toEqual(error);
       done();
     });
   });
