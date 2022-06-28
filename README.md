@@ -17,16 +17,16 @@ var once = require('async-once');
 
 var count = 0;
 
-var myAsyncFunc = once(function(cb){
+var myAsyncFunc = once(function (cb) {
   count++;
   cb(null, count);
 });
 
-myAsyncFunc(function(err, result){
+myAsyncFunc(function (err, result) {
   assert(result === 1);
 });
 
-myAsyncFunc(function(err, result){
+myAsyncFunc(function (err, result) {
   assert(result === 1);
 });
 
