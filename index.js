@@ -1,6 +1,6 @@
 'use strict';
 
-var Queue = require('basic-queue');
+var Queue = require('@mapbox/basic-queue');
 var wrappy = require('wrappy');
 
 var slice = Array.prototype.slice;
@@ -34,7 +34,7 @@ function asyncOnce(fn) {
 
   var _queue = new Queue(worker, 1);
 
-  return function() {
+  return function () {
     var args = slice.call(arguments, 0);
     var work = {
       ctx: this,
