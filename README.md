@@ -6,7 +6,7 @@
 
 # async-once
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![AppVeyor Build Status][appveyor-image]][appveyor-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Gitter chat][gitter-image]][gitter-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][ci-image]][ci-url] [![Coveralls Status][coveralls-image]][coveralls-url]
 
 Guarantee a node-style async function is only executed once.
 
@@ -43,18 +43,14 @@ Takes a node-style async function (`fn`) to ensure it's only called once. The fu
 
 MIT
 
-[downloads-image]: http://img.shields.io/npm/dm/async-once.svg
-[npm-url]: https://npmjs.com/package/async-once
-[npm-image]: http://img.shields.io/npm/v/async-once.svg
+<!-- prettier-ignore-start -->
+[downloads-image]: https://img.shields.io/npm/dm/async-once.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/async-once
+[npm-image]: https://img.shields.io/npm/v/async-once.svg?style=flat-square
 
-[travis-url]: https://travis-ci.org/gulpjs/async-once
-[travis-image]: http://img.shields.io/travis/gulpjs/async-once.svg?label=travis-ci
-
-[appveyor-url]: https://ci.appveyor.com/project/gulpjs/async-once
-[appveyor-image]: https://img.shields.io/appveyor/ci/gulpjs/async-once.svg?label=appveyor
+[ci-url]: https://github.com/gulpjs/async-once/actions?query=workflow:dev
+[ci-image]: https://img.shields.io/github/workflow/status/gulpjs/async-once/dev?style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/gulpjs/async-once
-[coveralls-image]: http://img.shields.io/coveralls/gulpjs/async-once/master.svg
-
-[gitter-url]: https://gitter.im/gulpjs/gulp
-[gitter-image]: https://badges.gitter.im/gulpjs/gulp.png
+[coveralls-image]: https://img.shields.io/coveralls/gulpjs/async-once/master.svg?style=flat-square
+<!-- prettier-ignore-end -->
