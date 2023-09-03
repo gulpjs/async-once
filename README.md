@@ -49,7 +49,7 @@ MIT
 [npm-image]: https://img.shields.io/npm/v/async-once.svg?style=flat-square
 
 [ci-url]: https://github.com/gulpjs/async-once/actions?query=workflow:dev
-[ci-image]: https://img.shields.io/github/workflow/status/gulpjs/async-once/dev?style=flat-square
+[ci-image]: https://img.shields.io/github/actions/workflow/status/gulpjs/async-once/dev.yml?branch=master&style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/gulpjs/async-once
 [coveralls-image]: https://img.shields.io/coveralls/gulpjs/async-once/master.svg?style=flat-square
