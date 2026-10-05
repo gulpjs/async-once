@@ -13,7 +13,7 @@ Guarantee a node-style async function is only executed once.
 ## Usage
 
 ```js
-var once = require('async-once');
+var once = require("async-once");
 
 var count = 0;
 

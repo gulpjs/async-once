@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-var expect = require('expect');
+var expect = require("expect");
 
-var once = require('../');
+var once = require("../");
 
-describe('async-once', function () {
-  it('calls once', function (done) {
+describe("async-once", function () {
+  it("calls once", function (done) {
     var count = 0;
 
     var fn = once(function (cb) {
@@ -25,7 +25,7 @@ describe('async-once', function () {
     });
   });
 
-  it('will queue multiple async runs', function (done) {
+  it("will queue multiple async runs", function (done) {
     var count = 0;
 
     var fn = once(function (cb) {
@@ -47,14 +47,14 @@ describe('async-once', function () {
     });
   });
 
-  it('throws on non-node-style async function', function (done) {
+  it("throws on non-node-style async function", function (done) {
     var fn = once(function () {});
 
     expect(fn.bind(null, 1234)).toThrow();
     done();
   });
 
-  it('passes extra args to the wrapped fn', function (done) {
+  it("passes extra args to the wrapped fn", function (done) {
     var fn = once(function (fwd, cb) {
       expect(fwd).toEqual(1);
       cb(null, fwd);
@@ -70,8 +70,8 @@ describe('async-once', function () {
     });
   });
 
-  it('passes error from wrapped fn', function (done) {
-    var error = new Error('boom');
+  it("passes error from wrapped fn", function (done) {
+    var error = new Error("boom");
 
     var fn = once(function (cb) {
       cb(error);
