@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-var Queue = require('@mapbox/basic-queue');
-var wrappy = require('wrappy');
+var Queue = require("@mapbox/basic-queue");
+var wrappy = require("wrappy");
 
 var slice = Array.prototype.slice;
 
@@ -42,8 +42,8 @@ function asyncOnce(fn) {
       cb: args.slice(-1)[0],
     };
 
-    if (typeof work.cb !== 'function') {
-      throw new Error('async-once only works with node-style async functions');
+    if (typeof work.cb !== "function") {
+      throw new Error("async-once only works with node-style async functions");
     }
 
     _queue.add(work);
