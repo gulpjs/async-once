@@ -1,11 +1,12 @@
 "use strict";
 
-var expect = require("expect");
+var assert = require("node:assert");
+var { describe, it } = require("node:test");
 
 var once = require("../");
 
 describe("async-once", function () {
-  it("calls once", function (done) {
+  it("calls once", function (t, done) {
     var count = 0;
 
     var fn = once(function (cb) {
@@ -14,18 +15,18 @@ describe("async-once", function () {
     });
 
     fn(function (err, result) {
-      expect(count).toEqual(1);
-      expect(result).toEqual(1);
+      assert.strictEqual(count, 1);
+      assert.strictEqual(result, 1);
     });
 
     fn(function (err, result) {
-      expect(count).toEqual(1);
-      expect(result).toEqual(1);
+      assert.strictEqual(count, 1);
+      assert.strictEqual(result, 1);
       done(err);
     });
   });
 
-  it("will queue multiple async runs", function (done) {
+  it("will queue multiple async runs", function (t, done) {
     var count = 0;
 
     var fn = once(function (cb) {
@@ -36,41 +37,40 @@ describe("async-once", function () {
     });
 
     fn(function (err, result) {
-      expect(count).toEqual(1);
-      expect(result).toEqual(1);
+      assert.strictEqual(count, 1);
+      assert.strictEqual(result, 1);
     });
 
     fn(function (err, result) {
-      expect(count).toEqual(1);
-      expect(result).toEqual(1);
+      assert.strictEqual(count, 1);
+      assert.strictEqual(result, 1);
       done(err);
     });
   });
 
-  it("throws on non-node-style async function", function (done) {
+  it("throws on non-node-style async function", function (t, done) {
     var fn = once(function () {});
-
-    expect(fn.bind(null, 1234)).toThrow();
+    assert.throws(fn.bind(null, 1234));
     done();
   });
 
-  it("passes extra args to the wrapped fn", function (done) {
+  it("passes extra args to the wrapped fn", function (t, done) {
     var fn = once(function (fwd, cb) {
-      expect(fwd).toEqual(1);
+      assert.strictEqual(fwd, 1);
       cb(null, fwd);
     });
 
     fn(1, function (err, result) {
-      expect(result).toEqual(1);
+      assert.strictEqual(result, 1);
     });
 
     fn(2, function (err, result) {
-      expect(result).toEqual(1);
+      assert.strictEqual(result, 1);
       done();
     });
   });
 
-  it("passes error from wrapped fn", function (done) {
+  it("passes error from wrapped fn", function (t, done) {
     var error = new Error("boom");
 
     var fn = once(function (cb) {
@@ -78,11 +78,11 @@ describe("async-once", function () {
     });
 
     fn(function (err) {
-      expect(err).toEqual(error);
+      assert.strictEqual(err, error);
     });
 
     fn(function (err) {
-      expect(err).toEqual(error);
+      assert.strictEqual(err, error);
       done();
     });
   });
